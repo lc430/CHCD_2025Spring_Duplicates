@@ -6,7 +6,7 @@ Found 53 duplicate records to process
 47 merges completed
 
 ### Merge results not completely checked yet
-Only checked whether one of the merged notes deleted from the database, but its notes remains **null** (not sure whether other columns of info successfully appended). 
+Only checked whether one of the merged notes deleted from the database(✅), but its notes remains **null** (not sure whether other columns of info successfully appended). 
 (not sure how to restore the neo4j database previous version so...)
 
 ### Further things left to do:
