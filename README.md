@@ -1,5 +1,9 @@
 # CHCD_2025Spring_Duplicates
 
+## Feb 26 2025 commit from Lize:
+second half of merging strategies almost done
+the replacement of chcd_ids in the institution duplication check file left to do
+
 ## Feb 12 2025 first commit from Lize:
 Test from local database
 Found 53 duplicate records to process
