@@ -1,7 +1,10 @@
 # CHCD_2025Spring_Duplicates
+## Mar 5 commit from Lize:
+duplicated id replaced in the check file
 
 ## Feb 26 2025 commit from Lize:
 second half of merging strategies almost done
+
 the replacement of chcd_ids in the institution duplication check file left to do
 
 ## Feb 12 2025 first commit from Lize:
