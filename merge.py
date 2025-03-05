@@ -70,7 +70,7 @@ def read_and_split_csv(file_path, delimiter='@'):
     return df
 
 def merge_rows(row1, row2, all_columns):
-    merged_row = {
+    merged_row = { 
         'id': merge_id(row1.get('id'), row2.get('id')),
         'name_western': merge_name_western(row1.get('name_western'), row2.get('name_western')),
         'alternative_name_western': merge_alternative_name_western(row1.get('alternative_name_western'), row2.get('alternative_name_western')),
@@ -81,7 +81,7 @@ def merge_rows(row1, row2, all_columns):
         'institution_category': merge_institution_category(row1.get('institution_category'), row2.get('institution_category')),
         'institution_subcategory': merge_institution_subcategory(row1.get('institution_subcategory'), row2.get('institution_subcategory')),
         'nationality': merge_nationality(row1.get('nationality'), row2.get('nationality')),
-         
+        
         'gender_served': merge_gender_served(row1.get('gender_served'), row2.get('gender_served')),
         'christian_tradition': merge_christian_tradition(row1.get('christian_tradition'), row2.get('christian_tradition')),
         'religious_family': merge_religious_family(row1.get('religious_family'), row2.get('religious_family')),
