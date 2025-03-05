@@ -1,5 +1,44 @@
 import pandas as pd
 
+def merge_id(value1, value2):
+    return value1
+
+def merge_name_western(value1, value2):
+    if value1 and value2:
+        return value1 if len(value1) <= len(value2) else value2
+    return value1 or value2
+
+def merge_alternative_name_western(value1, value2):
+    values = set(str(value1).split('; ') + str(value2).split('; '))
+    return '; '.join(values) if values else None
+
+def merge_chinese_name_hanzi(value1, value2):
+    if value1 and value2:
+        return value1 if len(value1) <= len(value2) else value2
+    return value1 or value2
+
+def merge_alternative_chinese_name_hanzi(value1, value2):
+    values = set(str(value1).split('; ') + str(value2).split('; '))
+    return '; '.join(values) if values else None
+
+def merge_name_romanized(value1, value2):
+    if value1 and value2:
+        return value1 if len(value1) <= len(value2) else value2
+    return value1 or value2
+
+def merge_alternative_name_romanized(value1, value2):
+    values = set(str(value1).split('; ') + str(value2).split('; '))
+    return '; '.join(values) if values else None
+
+def merge_institution_category(value1, value2):
+    return value1
+
+def merge_institution_subcategory(value1, value2):
+    return value1
+
+def merge_nationality(value1, value2):
+    return value1 if value1 == value2 else "FLAG_FOR_REVIEW"
+
 def merge_gender_served(value1, value2):
     values = set(str(value1).split('; ') + str(value2).split('; '))
     return '; '.join(values) if values else None
@@ -31,7 +70,18 @@ def read_and_split_csv(file_path, delimiter='@'):
     return df
 
 def merge_rows(row1, row2, all_columns):
-    merged_row = { 
+    merged_row = {
+        'id': merge_id(row1.get('id'), row2.get('id')),
+        'name_western': merge_name_western(row1.get('name_western'), row2.get('name_western')),
+        'alternative_name_western': merge_alternative_name_western(row1.get('alternative_name_western'), row2.get('alternative_name_western')),
+        'chinese_name_hanzi': merge_chinese_name_hanzi(row1.get('chinese_name_hanzi'), row2.get('chinese_name_hanzi')),
+        'alternative_chinese_name_hanzi': merge_alternative_chinese_name_hanzi(row1.get('alternative_chinese_name_hanzi'), row2.get('alternative_chinese_name_hanzi')),
+        'name_romanized': merge_name_romanized(row1.get('name_romanized'), row2.get('name_romanized')),
+        'alternative_name_romanized': merge_alternative_name_romanized(row1.get('alternative_name_romanized'), row2.get('alternative_name_romanized')),
+        'institution_category': merge_institution_category(row1.get('institution_category'), row2.get('institution_category')),
+        'institution_subcategory': merge_institution_subcategory(row1.get('institution_subcategory'), row2.get('institution_subcategory')),
+        'nationality': merge_nationality(row1.get('nationality'), row2.get('nationality')),
+         
         'gender_served': merge_gender_served(row1.get('gender_served'), row2.get('gender_served')),
         'christian_tradition': merge_christian_tradition(row1.get('christian_tradition'), row2.get('christian_tradition')),
         'religious_family': merge_religious_family(row1.get('religious_family'), row2.get('religious_family')),
